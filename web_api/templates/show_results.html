@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECG Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            background-image: url('static/home_bg.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+        .upload-container {
+            border: 2px dashed #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 50px;
+            background-color: rgba(179, 209, 228, 0.9);
+        }
+        .result-item {
+            margin: 15px 0;
+            font-size: 1.2em;
+        }
+        .back-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .back-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="upload-container">
+        <h1>ECG Analysis Results</h1>
+        <div class="result-item">
+            <strong>Patient ID:</strong> {{ patient_id }}
+        </div>
+        <div class="result-item">
+            <strong>Diagnosis:</strong> {{ diagnosis }}
+        </div>
+        <a href="{{ url_for('home') }}" class="back-btn">Back to Upload</a>
+    </div>
+</body>
+</html>

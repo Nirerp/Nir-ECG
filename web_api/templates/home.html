@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Processing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            background-image: url('static/home_bg.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+        .upload-container {
+            border: 2px dashed #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 50px;
+            background-color: rgba(179, 209, 228, 0.9);
+        }
+        .upload-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .upload-btn:hover {
+            background-color: #45a049;
+        }
+        .input-field {
+            margin: 15px 5px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 200px;
+        }
+        .input-group {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .input-label {
+            font-weight: 500;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="upload-container">
+        <h1>Upload ECG</h1>
+        <form action="{{ url_for('get_ecg_info') }}" method="POST" enctype="multipart/form-data">
+            <div class="input-group">
+                <label for="patient-id" class="input-label">Enter Patient ID:</label>
+                <input type="text" id="patient-id" name="patient_id" class="input-field" placeholder="e.g: 123456789" required>
+            </div>
+            <input type="file" name="file" accept="image/*" required><br>
+            <input type="submit" value="Process Image" class="upload-btn">
+        </form>
+    </div>
+</body>
+</html>
